@@ -3,6 +3,14 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap");
 
+@theme {
+  --color-search-icon: #5964e0;
+  --color-input: #fff;
+  --color-input-dark: #19202d;
+  --color-oval: #6e8098;
+  --color-site: #5964e0;
+}
+
 body {
   min-height: 100vh;
   font-family: "Kumbh Sans", sans-serif;
