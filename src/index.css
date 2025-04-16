@@ -6,4 +6,60 @@
 body {
   min-height: 100vh;
   font-family: "Kumbh Sans", sans-serif;
+  background-color: #f4f6f8;
+}
+
+body.dark {
+  background-color: #121721;
+}
+
+header {
+  background-image: url(/public/assets/mobile/bg-pattern-header.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background-color: #5964e0;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: white;
+}
+
+input:checked + .slider::before {
+  transform: translateX(12px);
 }
