@@ -17,7 +17,7 @@ const Header = () => {
   };
   return (
     <div className="flex flex-col items-center">
-      <header className="w-[375px] h-[136px] px-[24px] pt-[32px] flex items-start justify-between tb:w-[768px] tb:pt-[42px] tb:px-[39px]">
+      <header className="w-[375px] h-[136px] px-[24px] pt-[32px] flex items-start justify-between tb:w-[768px] tb:pt-[42px] tb:px-[39px] dk:w-[1440px]">
         <div className="img">
           <img src={logo} alt="DevJobs Logo" />
         </div>

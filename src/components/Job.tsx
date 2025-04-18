@@ -14,18 +14,18 @@ const Job: React.FC<JobInfo> = () => {
           return (
             <div
               key={data.id}
-              className="w-[327px] rounded-[6px] bg-input flex flex-col items-center relative bottom-5 pt-[40px] dark:bg-input-dark"
+              className="w-[327px] rounded-[6px] bg-input flex flex-col items-center relative bottom-5 pt-[40px] dark:bg-input-dark tb:w-[689px] tb:pr-[40px] tb:pt-0 tb:h-[140px] tb:justify-center dk:w-[730px]"
             >
               <div
                 style={{ backgroundColor: data.logoBackground }}
-                className={`jobs-background w-[50px] h-[50px]  flex flex-col items-center rounded-[20px] justify-center absolute -top-6 z-10`}
+                className={`jobs-background w-[50px] h-[50px]  flex flex-col items-center rounded-[20px] justify-center absolute -top-6 z-10 tb:rounded-[0px] tb:top-0 tb:w-[140px] tb:h-[140px] tb:left-0 tb:rounded-l-[6px]`}
               >
                 <img src={data.logo} alt="company logo" />
               </div>
-              <div className="big">
-                <div className="one">
+              <div className="big tb:flex tb:items-center tb:justify-between tb:w-full">
+                <div className="one tb:flex tb:flex-col tb:pl-[180px]">
                   <div className="name text-center">
-                    <p className="text-[#19202D] text-[20px] font-bold dark:text-[#fff]">
+                    <p className="text-[#19202D] text-[20px] font-bold dark:text-[#fff] tb:text-[24px]">
                       {data.company}
                     </p>
                   </div>
@@ -53,7 +53,7 @@ const Job: React.FC<JobInfo> = () => {
       <main className="flex flex-col items-center">
         {filteredData.map((info) => {
           return (
-            <div className="w-[327px] bg-input rounded-[6px] py-[40px] px-[24px] dark:bg-input-dark">
+            <div className="w-[327px] bg-input rounded-[6px] py-[40px] px-[24px] dark:bg-input-dark tb:w-[689px] dk:w-[730px]">
               <div className="times flex items-center mt-[5px] gap-[12px]">
                 <p className="text-[#6E8098] text-[16px] font-normal">
                   {info.postedAt}
@@ -63,17 +63,17 @@ const Job: React.FC<JobInfo> = () => {
                   {info.contract}
                 </p>
               </div>
-              <div className="positioning flex flex-col">
+              <div className="positioning flex flex-col tb:flex-row tb:items-center tb:justify-between">
                 <div className="position-location mt-[11px] flex flex-col gap-[7px]">
-                  <p className="text-[#19202D] text-[18px] font-bold dark:text-[#fff]">
+                  <p className="text-[#19202D] text-[18px] font-bold dark:text-[#fff] dk:text-[28px]">
                     {info.position}
                   </p>
                   <p className="text-[#5964E0] text-[14px] font-bold">
                     {info.location}
                   </p>
                 </div>
-                <div className="apply mt-[54px]">
-                  <button className="w-[279px] py-[16px] text-[16px] font-bold bg-site text-[#fff] rounded-[5px]">
+                <div className="apply mt-[54px] tb:mt-0">
+                  <button className="w-[279px] py-[16px] text-[16px] font-bold bg-site text-[#fff] rounded-[5px] tb:w-[141px]">
                     Apply Now
                   </button>
                 </div>
@@ -99,7 +99,11 @@ const Job: React.FC<JobInfo> = () => {
                         key={index}
                         className="text-[#6E8098] text-[16px] font-normal flex gap-[32px] items-start"
                       >
-                        <img src={oval} alt="oval icon" className="mt-[9px]" />
+                        <img
+                          src={oval}
+                          alt="oval icon"
+                          className="mt-[9px]"
+                        />
                         {item}
                       </li>
                     );
@@ -126,11 +130,29 @@ const Job: React.FC<JobInfo> = () => {
         })}
       </main>
 
-      <footer className="flex flex-col items-center mt-[64px]">
-        <div className="apply-now w-[375px] bg-input rounded-[6px] flex flex-col items-center py-[25px] dark:bg-input-dark">
-          <button className="w-[327px] py-[16px] text-[#fff] text-[16px] font-bold bg-site rounded-[5px]">
-            Apply Now
-          </button>
+      <footer className="flex flex-col items-center mt-[64px] tb:flex-row tb:justify-center ">
+        <div className="apply-now w-[375px] bg-input rounded-[6px] flex flex-col  items-center py-[25px] dark:bg-input-dark tb:flex-row tb:w-[768px] tb:items-center tb:justify-between tb:px-[40px] dk:w-[1440px]">
+          <div className="dvi mb:block tb:flex tb:flex-row tb:items-center tb:justify-between tb:w-full tb:block dk:block dk:w-[730px] dk:flex dk:flex-row dk:justify-center dk:gap-[330px] dk:w-full">
+            <div className="text mb:hidden tb:block flex flex-col">
+              {filteredData.map((job) => {
+                return (
+                  <div key={job.id}>
+                    <p className="text-[#19202D] text-[20px] font-bold dark:text-[#fff]">
+                      {job.position}
+                    </p>
+                    <p className="text-[#6E8098] text-[16px] font-normal">
+                      So Digital Inc.
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="apply">
+              <button className="w-[327px] py-[16px] text-[#fff] text-[16px] font-bold bg-site rounded-[5px] tb:w-[141px] ">
+                Apply Now
+              </button>
+            </div>
+          </div>
         </div>
       </footer>
     </>

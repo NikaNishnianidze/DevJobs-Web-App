@@ -81,3 +81,9 @@ input:checked + .slider::before {
     background-image: url(/public/assets/tablet/bg-pattern-header.svg);
   }
 }
+
+@media screen and (min-width: 1440px) {
+  header {
+    background-image: url(/public/assets/desktop/bg-pattern-header.svg);
+  }
+}

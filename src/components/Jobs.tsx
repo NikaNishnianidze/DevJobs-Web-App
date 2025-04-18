@@ -116,15 +116,18 @@ const Jobs = () => {
         </div>
       </div>
 
-      <div className="filter-div-tablet mb:hidden tb:block w-[689px] rounded-[6px] bg-input relative bottom-9">
-        <form onSubmit={handleFilter} className="flex items-center">
-          <div className="first flex items-center gap-[16px] py-[28px] tb:px-[24px]">
+      <div className="filter-div-tablet mb:hidden tb:block w-[689px] rounded-[6px] bg-input relative bottom-9 dark:bg-input-dark dk:w-[1110px]">
+        <form
+          onSubmit={handleFilter}
+          className="flex items-center  dk:gap-[28px]"
+        >
+          <div className="first flex items-center gap-[16px] py-[28px] tb:px-[24px] ">
             <img src={searchIcon} alt="search icon" />
             <input
               type="text"
               onChange={(e) => setTitleValue(e.target.value)}
               placeholder="Filter by title..."
-              className="w-[105px] appearance-none outline-none cursor-pointer"
+              className="w-[105px] appearance-none outline-none cursor-pointer dark:text-[#fff] dk:w-[271px]"
             />
           </div>
           <div className="divider w-[1px] h-[40px] bg-oval/20"></div>
@@ -134,7 +137,7 @@ const Jobs = () => {
               type="text"
               onChange={(e) => setLocationValue(e.target.value)}
               placeholder="Filter by location..."
-              className="w-[135px] outline-none cursor-pointer"
+              className="w-[135px] outline-none cursor-pointer dark:text-[#fff] "
             />
           </div>
           <div className="divider w-[1px] h-[40px] bg-oval/20"></div>
@@ -146,15 +149,21 @@ const Jobs = () => {
               onClick={() => setFullTime(!fullTime)}
             />
             <label
-              htmlFor="time"
-              className="text-[#19202D] text-[16px] font-bold dark:text-[#fff]"
+              htmlFor="time "
+              className="tb:block dk:hidden text-[#19202D] text-[16px] font-bold dark:text-[#fff]"
             >
               Full Time
+            </label>
+            <label
+              htmlFor="time"
+              className="tb:hidden dk:block text-[#19202D] text-[16px] font-bold dark:text-[#fff]"
+            >
+              Full Time Only
             </label>
           </div>
           <button
             type="submit"
-            className="w-[80px] rounded-[5px] py-[16px] text-[#fff] font-bold text-[16px] bg-site ml-[20px]"
+            className="w-[80px] rounded-[5px] py-[16px] text-[#fff] font-bold text-[16px] bg-site ml-[20px] dk:w-[123px] dk:ml-[40px]"
           >
             Search
           </button>
@@ -166,7 +175,7 @@ const Jobs = () => {
             <div
               key={job.id}
               onClick={() => handleInfo(job)}
-              className="w-[327px] py-[36px] px-[32px] relative bg-input rounded-[6px] dark:bg-input-dark"
+              className="w-[327px] py-[36px] px-[32px] relative bg-input rounded-[6px] dark:bg-input-dark tb:w-[339px] dk:w-[350px]"
             >
               <div
                 style={{ backgroundColor: job.logoBackground }}
@@ -184,7 +193,7 @@ const Jobs = () => {
                 </p>
               </div>
               <div className="position mt-[16px]">
-                <p className="text-[#19202D] text-[18px] font-bold dark:text-[#fff]">
+                <p className="text-[#19202D] text-[18px] font-bold dark:text-[#fff] tb:text-[20px]">
                   {job.position}
                 </p>
               </div>
@@ -201,6 +210,11 @@ const Jobs = () => {
             </div>
           );
         })}
+      </div>
+      <div className="learn-more my-[32px] tb:mt-[56px]">
+        <button className="text-[#fff] text-[16px] font-bold w-[141px] py-[16px] bg-site rounded-[5px]">
+          Learn More
+        </button>
       </div>
     </div>
   );
