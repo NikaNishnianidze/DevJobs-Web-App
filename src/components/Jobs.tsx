@@ -23,6 +23,7 @@ const Jobs = () => {
   };
 
   const handleFilter = () => {
+    event?.preventDefault();
     const filtered = data.filter((job) => {
       const filteredByName = job.company
         .toLowerCase()
@@ -32,7 +33,9 @@ const Jobs = () => {
         .includes(locationValue.toLowerCase());
       const filteredByFullTime =
         !fullTime || job.contract.toLowerCase() == "full time";
-      return filteredByLocation && filteredByFullTime && filteredByName;
+      return (
+        filteredByLocation && filteredByFullTime && filteredByName
+      );
     });
 
     setFilteredJobs(filtered);
@@ -47,7 +50,7 @@ const Jobs = () => {
       {filterOpen && (
         <div
           onClick={() => setFilterOpen(false)}
-          className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center"
+          className="mb:blokc tb:hidden dk:hidden fixed inset-0 z-50 bg-black/50 flex items-center justify-center"
         >
           <div
             onClick={(e) => e.stopPropagation()}
@@ -88,14 +91,14 @@ const Jobs = () => {
           </div>
         </div>
       )}
-      <div className="filter-div w-[327px]  flex items-center relative bottom-7">
+      <div className="filter-div-mobile mb:block tb:hidden dk:hidden w-[327px]  flex items-center relative bottom-7">
         <input
           type="text"
           className="w-[327px] p-[16px] rounded-[6px] bg-input dark:bg-input-dark dark:text-[#fff]"
           placeholder="Filter by title…"
           onChange={(e) => setTitleValue(e.target.value)}
         />
-        <div className="icons flex items-center absolute gap-[24px] right-[16px]">
+        <div className="icons flex items-center absolute gap-[24px] right-[16px] top-1">
           <img
             src={filterIcon}
             alt="filter icon"
@@ -112,7 +115,52 @@ const Jobs = () => {
           </div>
         </div>
       </div>
-      <div className="jobs-list flex flex-col gap-[49px] mt-[40px]">
+
+      <div className="filter-div-tablet mb:hidden tb:block w-[689px] rounded-[6px] bg-input relative bottom-9">
+        <form onSubmit={handleFilter} className="flex items-center">
+          <div className="first flex items-center gap-[16px] py-[28px] tb:px-[24px]">
+            <img src={searchIcon} alt="search icon" />
+            <input
+              type="text"
+              onChange={(e) => setTitleValue(e.target.value)}
+              placeholder="Filter by title..."
+              className="w-[105px] appearance-none outline-none cursor-pointer"
+            />
+          </div>
+          <div className="divider w-[1px] h-[40px] bg-oval/20"></div>
+          <div className="second flex items-center gap-[16px] py-[28px] px-[24px]">
+            <img src={locationIcon} alt="location icon" />
+            <input
+              type="text"
+              onChange={(e) => setLocationValue(e.target.value)}
+              placeholder="Filter by location..."
+              className="w-[135px] outline-none cursor-pointer"
+            />
+          </div>
+          <div className="divider w-[1px] h-[40px] bg-oval/20"></div>
+          <div className="third flex items-center gap-[16px] py-[28px] px-[24px]">
+            <input
+              type="checkbox"
+              id="time"
+              className="appearance-none checked:bg-site focus:outline-none w-[24px] h-[24px] rounded-[3px] accent-site cursor-pointer bg-input-dark/10 dark:bg-white/10"
+              onClick={() => setFullTime(!fullTime)}
+            />
+            <label
+              htmlFor="time"
+              className="text-[#19202D] text-[16px] font-bold dark:text-[#fff]"
+            >
+              Full Time
+            </label>
+          </div>
+          <button
+            type="submit"
+            className="w-[80px] rounded-[5px] py-[16px] text-[#fff] font-bold text-[16px] bg-site ml-[20px]"
+          >
+            Search
+          </button>
+        </form>
+      </div>
+      <div className="jobs-list flex flex-col gap-[49px] mt-[40px] tb:flex-wrap tb:flex-row tb:justify-center">
         {filteredJobs.map((job) => {
           return (
             <div

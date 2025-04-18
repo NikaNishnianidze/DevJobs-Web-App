@@ -9,6 +9,10 @@
   --color-input-dark: #19202d;
   --color-oval: #6e8098;
   --color-site: #5964e0;
+
+  --breakpoint-mb: 375px;
+  --breakpoint-tb: 768px;
+  --breakpoint-dk: 1440px;
 }
 
 body {
@@ -70,4 +74,10 @@ input:checked + .slider {
 
 input:checked + .slider::before {
   transform: translateX(12px);
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    background-image: url(/public/assets/tablet/bg-pattern-header.svg);
+  }
 }
